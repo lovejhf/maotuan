@@ -1,0 +1,78 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.hkt.mao.app.android"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("F:\\keystory/keystory.jks")
+            storePassword "hkt.123"
+            keyAlias "huiketong"
+            keyPassword "hkt.123"
+        }
+    }
+}
+afterEvaluate {
+    tasks.matching {
+        it.name.startsWith('dex')
+    }.each { dx ->
+        if (dx.additionalParameters == null) {
+            dx.additionalParameters = ['--multi-dex']
+        } else {
+            dx.additionalParameters += '--multi-dex'
+        }
+    }
+}
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation files('libs/lite-orm-1.9.1.jar')
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.orhanobut:hawk:2.0.1'
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.28'
+    implementation 'com.mcxiaoke.xbus:bus:1.0.+'
+    implementation 'me.yokeyword:fragmentation:1.3.4'
+    implementation 'me.yokeyword:fragmentation:1.3.4'
+    implementation 'me.yokeyword:fragmentation-swipeback:1.3.4'
+    implementation 'com.lzy.net:okgo:3.0.4'
+    implementation 'com.alibaba:fastjson:1.2.24'
+    implementation 'com.github.bumptech.glide:glide:4.5.0'
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation 'com.gyf.barlibrary:barlibrary:+'
+    implementation 'com.hjq:toast:3.0'
+    implementation 'com.github.open-android:FragmentTabhostUtils:0.5.0'
+    implementation 'com.youth.banner:banner:+'
+    implementation 'com.github.AriesHoo:RadiusView:+'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1'
+    implementation 'pub.devrel:easypermissions:2.0.0'
+    implementation 'com.github.lygttpod:SuperTextView:2.1.5'
+    implementation 'com.android.support:cardview-v7:28.0.0'
+    implementation 'com.lzy.widget:view-core:0.2.1'
+    implementation 'in.srain.cube:ultra-ptr:1.0.11'
+}

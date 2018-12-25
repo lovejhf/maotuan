@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    app:srlEnablePreviewInEditMode="false">
+
+
+    <LinearLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_10"
+            android:text="杭州"
+            android:textSize="@dimen/sp_14" />
+
+        <com.aries.ui.view.radius.RadiusTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:hint="搜索您想要的"
+            android:padding="@dimen/dp_10"
+            app:rv_backgroundColor="@color/window_color" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_10"
+            android:src="@mipmap/ic_home_message" />
+    </LinearLayout>
+
+
+    <in.srain.cube.views.ptr.PtrClassicFrameLayout
+        android:id="@+id/rotate_header_web_view_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:ptr_duration_to_close="200"
+        app:ptr_duration_to_close_header="1000"
+        app:ptr_keep_header_when_refresh="true"
+        app:ptr_pull_to_fresh="false"
+        app:ptr_ratio_of_header_height_to_refresh="1.2"
+        app:ptr_resistance="1.7">
+        <com.lzy.widget.HeaderViewPager
+            android:id="@+id/scrollableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:hvp_topOffset="-200dp">
+
+            <com.hkt.mao.app.android.view.BannerCircle
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:layout_marginTop="@dimen/dp_10"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                app:image_scale_type="fit_xy"
+                app:indicator_drawable_selected="@mipmap/ic_banner_selected"
+                app:indicator_drawable_unselected="@mipmap/ic_banner_un_selected"
+                app:indicator_width="10dp" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/home_menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <include layout="@layout/line_view" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/design_type_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_10" />
+
+            <com.hkt.mao.app.android.view.SlidingTabLayoutView
+                android:id="@+id/tab"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@android:color/white"
+                app:tl_indicator_color="@color/color_fd616c"
+                app:tl_indicator_height="4.5dp"
+                app:tl_indicator_margin_bottom="15dp"
+                app:tl_indicator_width_equal_title="true"
+                app:tl_tab_padding="15dp"
+                app:tl_tab_space_equal="false"
+                app:tl_textSelectColor="@color/home_text_color"
+                app:tl_textSelectSize="16sp"
+                app:tl_textUnselectColor="@color/color_666"
+                app:tl_textUnselectSize="13sp" />
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </com.lzy.widget.HeaderViewPager>
+    </in.srain.cube.views.ptr.PtrClassicFrameLayout>
+</LinearLayout>

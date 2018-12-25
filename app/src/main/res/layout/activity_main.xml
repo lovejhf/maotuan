@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.heima.tabview.library.TabView
+        android:id="@+id/tabView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:tab_textViewSelColor="@color/color_fd616c"
+        app:tab_textViewUnSelColor="@android:color/black"
+        app:imageViewTextViewMargin="2dip"
+        app:tab_tabViewBackgroundColor="@android:color/white"
+        app:tab_tabViewDefaultPosition="0"
+        app:tab_tabViewGravity="bottom"
+        app:tab_tabViewHeight="60dip"
+        app:tab_textViewSize="12sp"
+        >
+    </com.heima.tabview.library.TabView>
+
+</LinearLayout>
